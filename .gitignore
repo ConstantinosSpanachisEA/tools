@@ -1,0 +1,14 @@
+/Tools/Shooju_functions/.env
+.env
+.idea/.gitignore
+.idea/.name
+.idea/Scraper.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.env
+*.xlsx
+*.exe
+*.csv
+*.txt
