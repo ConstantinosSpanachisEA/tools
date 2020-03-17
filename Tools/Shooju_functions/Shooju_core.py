@@ -257,20 +257,25 @@ class ShoojuTools(object):
 
 if __name__ == '__main__':
     tool = ShoojuTools()
-    list_of_q = [
-        r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=France))",
-        r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Greece))",
-        r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Italy))",
-        r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Lithuania))",
-        r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Netherlands))",
-        r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Poland))",
-        r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Portugal))",
-        r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Spain))",
-        # "((sid=gie\\alsi_storage\\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_short=GB))"
-    ]
-    for query in list_of_q:
-        q = tool.create_y_over_y_change(query)
-        print(q)
+    query = r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=France))"
+    scroller = tool.sj.scroll(query, fields=["sid"], max_points=1)
+    for s in scroller:
+        print(f"""sid={s["fields"]["sid"]}""")
+
+    # list_of_q = [
+    #     r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=France))",
+    #     r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Greece))",
+    #     r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Italy))",
+    #     r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Lithuania))",
+    #     r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Netherlands))",
+    #     r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Poland))",
+    #     r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Portugal))",
+    #     r"((sid=gie\alsi_storage\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_name=Spain))",
+    #     # "((sid=gie\\alsi_storage\\*) AND (source_obj.aspect=sendOut) AND (source_obj.country_short=GB))"
+    # ]
+    # for query in list_of_q:
+    #     q = tool.create_y_over_y_change(query)
+    #     print(q)
     #    list = [r"NATIONALGRID\SUPPLIES\38_13740",
     # r"NATIONALGRID\SUPPLIES\38_13724",
     # r"NATIONALGRID\SUPPLIES\38_13728",
